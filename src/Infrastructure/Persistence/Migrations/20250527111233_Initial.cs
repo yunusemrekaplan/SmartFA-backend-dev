@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -104,6 +104,64 @@ namespace Infrastructure.Persistence.Migrations
                     table.PrimaryKey("PK_Debts", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Debts_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reports",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    Period = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    FilterCriteria = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GeneratedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsScheduled = table.Column<bool>(type: "bit", nullable: false),
+                    ScheduleCron = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reports", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reports_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserRefreshTokens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Token = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    ExpiresAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RevokedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRefreshTokens", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserRefreshTokens_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -211,19 +269,19 @@ namespace Infrastructure.Persistence.Migrations
                 columns: new[] { "Id", "CreatedAt", "IconName", "IsDeleted", "IsPredefined", "Name", "Type", "UpdatedAt", "UserId" },
                 values: new object[,]
                 {
-                    { -13, new DateTime(2025, 4, 28, 16, 31, 45, 779, DateTimeKind.Utc).AddTicks(2710), "fas fa-ellipsis-h", false, true, "Diğer Gelirler", 2, null, null },
-                    { -12, new DateTime(2025, 4, 28, 16, 31, 45, 779, DateTimeKind.Utc).AddTicks(2708), "fas fa-hand-holding-usd", false, true, "Ek Gelir", 2, null, null },
-                    { -11, new DateTime(2025, 4, 28, 16, 31, 45, 779, DateTimeKind.Utc).AddTicks(2707), "fas fa-briefcase", false, true, "Maaş", 2, null, null },
-                    { -10, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9948), "fas fa-ellipsis-h", false, true, "Diğer Giderler", 1, null, null },
-                    { -9, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9947), "fas fa-film", false, true, "Eğlence", 1, null, null },
-                    { -8, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9946), "fas fa-tshirt", false, true, "Giyim", 1, null, null },
-                    { -7, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9945), "fas fa-graduation-cap", false, true, "Eğitim", 1, null, null },
-                    { -6, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9944), "fas fa-heartbeat", false, true, "Sağlık", 1, null, null },
-                    { -5, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9943), "fas fa-home", false, true, "Kira", 1, null, null },
-                    { -4, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9942), "fas fa-utensils", false, true, "Yeme-İçme", 1, null, null },
-                    { -3, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9941), "fas fa-bus", false, true, "Ulaşım", 1, null, null },
-                    { -2, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9940), "fas fa-file-invoice-dollar", false, true, "Faturalar", 1, null, null },
-                    { -1, new DateTime(2025, 4, 28, 16, 31, 45, 778, DateTimeKind.Utc).AddTicks(9858), "fas fa-shopping-cart", false, true, "Market", 1, null, null }
+                    { -13, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-ellipsis-h", false, true, "Diğer Gelirler", 2, null, null },
+                    { -12, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-hand-holding-usd", false, true, "Ek Gelir", 2, null, null },
+                    { -11, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-briefcase", false, true, "Maaş", 2, null, null },
+                    { -10, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-ellipsis-h", false, true, "Diğer Giderler", 1, null, null },
+                    { -9, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-film", false, true, "Eğlence", 1, null, null },
+                    { -8, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-tshirt", false, true, "Giyim", 1, null, null },
+                    { -7, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-graduation-cap", false, true, "Eğitim", 1, null, null },
+                    { -6, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-heartbeat", false, true, "Sağlık", 1, null, null },
+                    { -5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-home", false, true, "Kira", 1, null, null },
+                    { -4, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-utensils", false, true, "Yeme-İçme", 1, null, null },
+                    { -3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-bus", false, true, "Ulaşım", 1, null, null },
+                    { -2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-file-invoice-dollar", false, true, "Faturalar", 1, null, null },
+                    { -1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "fas fa-shopping-cart", false, true, "Market", 1, null, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -257,6 +315,11 @@ namespace Infrastructure.Persistence.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Reports_UserId",
+                table: "Reports",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Transactions_AccountId",
                 table: "Transactions",
                 column: "AccountId");
@@ -270,6 +333,11 @@ namespace Infrastructure.Persistence.Migrations
                 name: "IX_Transactions_UserId",
                 table: "Transactions",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRefreshTokens_UserId",
+                table: "UserRefreshTokens",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -282,7 +350,13 @@ namespace Infrastructure.Persistence.Migrations
                 name: "DebtPayments");
 
             migrationBuilder.DropTable(
+                name: "Reports");
+
+            migrationBuilder.DropTable(
                 name: "Transactions");
+
+            migrationBuilder.DropTable(
+                name: "UserRefreshTokens");
 
             migrationBuilder.DropTable(
                 name: "Debts");

@@ -176,59 +176,62 @@ public class ApplicationDbContext : DbContext
     /// <summary>
     /// Başlangıç verilerini (Ön tanımlı kategoriler vb.) ekler.
     /// </summary>
-    private void SeedData(ModelBuilder modelBuilder)
+    private static void SeedData(ModelBuilder modelBuilder)
     {
         // Kategori Enum isimlerini düzelt (Varsayım: Core.Enums altında)
-        var expenseType = CategoryType.Expense; // Veya Core.Enums.CategoryType.Gider
-        var incomeType = CategoryType.Income; // Veya Core.Enums.CategoryType.Gelir
+        const CategoryType expenseType = CategoryType.Expense; // Veya Core.Enums.CategoryType.Gider
+        const CategoryType incomeType = CategoryType.Income; // Veya Core.Enums.CategoryType.Gelir
+
+        var seedDate = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         // --- Ön Tanımlı Gider Kategorileri ---
         modelBuilder.Entity<Category>().HasData(
             new Category
             {
                 Id = -1, Name = "Market", Type = expenseType, IconName = "fas fa-shopping-cart", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             },
             new Category
             {
                 Id = -2, Name = "Faturalar", Type = expenseType, IconName = "fas fa-file-invoice-dollar", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             },
             new Category
             {
-                Id = -3, Name = "Ulaşım", Type = expenseType, IconName = "fas fa-bus", IsPredefined = true, CreatedAt = DateTime.UtcNow
+                Id = -3, Name = "Ulaşım", Type = expenseType, IconName = "fas fa-bus", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
                 Id = -4, Name = "Yeme-İçme", Type = expenseType, IconName = "fas fa-utensils", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             },
             new Category
             {
-                Id = -5, Name = "Kira", Type = expenseType, IconName = "fas fa-home", IsPredefined = true, CreatedAt = DateTime.UtcNow
+                Id = -5, Name = "Kira", Type = expenseType, IconName = "fas fa-home", IsPredefined = true, 
+                CreatedAt = seedDate
             },
             new Category
             {
                 Id = -6, Name = "Sağlık", Type = expenseType, IconName = "fas fa-heartbeat", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             },
             new Category
             {
                 Id = -7, Name = "Eğitim", Type = expenseType, IconName = "fas fa-graduation-cap", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             },
             new Category
             {
-                Id = -8, Name = "Giyim", Type = expenseType, IconName = "fas fa-tshirt", IsPredefined = true, CreatedAt = DateTime.UtcNow
+                Id = -8, Name = "Giyim", Type = expenseType, IconName = "fas fa-tshirt", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
-                Id = -9, Name = "Eğlence", Type = expenseType, IconName = "fas fa-film", IsPredefined = true, CreatedAt = DateTime.UtcNow
+                Id = -9, Name = "Eğlence", Type = expenseType, IconName = "fas fa-film", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
                 Id = -10, Name = "Diğer Giderler", Type = expenseType, IconName = "fas fa-ellipsis-h", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             }
         );
 
@@ -236,17 +239,17 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Category>().HasData(
             new Category
             {
-                Id = -11, Name = "Maaş", Type = incomeType, IconName = "fas fa-briefcase", IsPredefined = true, CreatedAt = DateTime.UtcNow
+                Id = -11, Name = "Maaş", Type = incomeType, IconName = "fas fa-briefcase", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
                 Id = -12, Name = "Ek Gelir", Type = incomeType, IconName = "fas fa-hand-holding-usd", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             },
             new Category
             {
                 Id = -13, Name = "Diğer Gelirler", Type = incomeType, IconName = "fas fa-ellipsis-h", IsPredefined = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = seedDate
             }
         );
     }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250527055717_AddReport")]
-    partial class AddReport
+    [Migration("20250527111233_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,7 +154,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -1,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1223),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-shopping-cart",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -164,7 +164,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -2,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1310),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-file-invoice-dollar",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -174,7 +174,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -3,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1311),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-bus",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -184,7 +184,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -4,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1312),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-utensils",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -194,7 +194,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -5,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1313),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-home",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -204,7 +204,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -6,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1314),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-heartbeat",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -214,7 +214,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -7,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1315),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-graduation-cap",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -224,7 +224,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -8,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1352),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-tshirt",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -234,7 +234,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -9,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1353),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-film",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -244,7 +244,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -10,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(1355),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-ellipsis-h",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -254,7 +254,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -11,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(4105),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-briefcase",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -264,7 +264,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -12,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(4107),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-hand-holding-usd",
                             IsDeleted = false,
                             IsPredefined = true,
@@ -274,7 +274,7 @@ namespace Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = -13,
-                            CreatedAt = new DateTime(2025, 5, 27, 5, 57, 16, 609, DateTimeKind.Utc).AddTicks(4108),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             IconName = "fas fa-ellipsis-h",
                             IsDeleted = false,
                             IsPredefined = true,

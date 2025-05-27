@@ -143,8 +143,9 @@ builder.Services.AddSwaggerGen(options =>
     {
         options.IncludeXmlComments(xmlPath);
     }
+
     // Application katmanındaki DTO yorumları için de eklenebilir (opsiyonel)
-    var appXmlFilename = $"{Assembly.GetAssembly(typeof(GeneralProfile))?.GetName().Name}.xml"; 
+    var appXmlFilename = $"{Assembly.GetAssembly(typeof(GeneralProfile))?.GetName().Name}.xml";
     var appXmlPath = Path.Combine(AppContext.BaseDirectory, appXmlFilename);
     if (File.Exists(appXmlPath)) options.IncludeXmlComments(appXmlPath);
 });
@@ -154,6 +155,13 @@ builder.Services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>(); // <-- Buraya kendi DbContext sınıfınızın adını yazın
+    dbContext.Database.Migrate();
+}
+
 
 // Geliştirme ortamı ayarları
 if (app.Environment.IsDevelopment())
