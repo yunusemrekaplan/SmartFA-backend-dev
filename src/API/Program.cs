@@ -167,6 +167,8 @@ else
 {
     // Production ortamı için global hata yönetimi middleware'i eklenebilir
     // app.UseExceptionHandler("/Error"); // Veya özel bir middleware
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.UseHsts(); // HTTPS Strict Transport Security
 }
 
