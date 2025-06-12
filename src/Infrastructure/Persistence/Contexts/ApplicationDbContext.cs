@@ -188,49 +188,49 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Category>().HasData(
             new Category
             {
-                Id = -1, Name = "Market", Type = expenseType, IconName = "fas fa-shopping-cart", IsPredefined = true,
+                Id = -1, Name = "Market", Type = expenseType, IconName = "0xe395", IsPredefined = true,
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -2, Name = "Faturalar", Type = expenseType, IconName = "fas fa-file-invoice-dollar", IsPredefined = true,
+                Id = -2, Name = "Faturalar", Type = expenseType, IconName = "0xe50c", IsPredefined = true,
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -3, Name = "Ulaşım", Type = expenseType, IconName = "fas fa-bus", IsPredefined = true, CreatedAt = seedDate
+                Id = -3, Name = "Ulaşım", Type = expenseType, IconName = "0xe1d5", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
-                Id = -4, Name = "Yeme-İçme", Type = expenseType, IconName = "fas fa-utensils", IsPredefined = true,
+                Id = -4, Name = "Yeme-İçme", Type = expenseType, IconName = "0xe532", IsPredefined = true,
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -5, Name = "Kira", Type = expenseType, IconName = "fas fa-home", IsPredefined = true, 
+                Id = -5, Name = "Kira", Type = expenseType, IconName = "0xe318", IsPredefined = true, 
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -6, Name = "Sağlık", Type = expenseType, IconName = "fas fa-heartbeat", IsPredefined = true,
+                Id = -6, Name = "Sağlık", Type = expenseType, IconName = "0xe3d8", IsPredefined = true,
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -7, Name = "Eğitim", Type = expenseType, IconName = "fas fa-graduation-cap", IsPredefined = true,
+                Id = -7, Name = "Eğitim", Type = expenseType, IconName = "0xe559", IsPredefined = true,
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -8, Name = "Giyim", Type = expenseType, IconName = "fas fa-tshirt", IsPredefined = true, CreatedAt = seedDate
+                Id = -8, Name = "Giyim", Type = expenseType, IconName = "0xe15d", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
-                Id = -9, Name = "Eğlence", Type = expenseType, IconName = "fas fa-film", IsPredefined = true, CreatedAt = seedDate
+                Id = -9, Name = "Eğlence", Type = expenseType, IconName = "0xe5e8", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
-                Id = -10, Name = "Diğer Giderler", Type = expenseType, IconName = "fas fa-ellipsis-h", IsPredefined = true,
+                Id = -10, Name = "Diğer Giderler", Type = expenseType, IconName = "0xe148", IsPredefined = true,
                 CreatedAt = seedDate
             }
         );
@@ -239,16 +239,16 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Category>().HasData(
             new Category
             {
-                Id = -11, Name = "Maaş", Type = incomeType, IconName = "fas fa-briefcase", IsPredefined = true, CreatedAt = seedDate
+                Id = -11, Name = "Maaş", Type = incomeType, IconName = "0xe482", IsPredefined = true, CreatedAt = seedDate
             },
             new Category
             {
-                Id = -12, Name = "Ek Gelir", Type = incomeType, IconName = "fas fa-hand-holding-usd", IsPredefined = true,
+                Id = -12, Name = "Ek Gelir", Type = incomeType, IconName = "0xe3f7", IsPredefined = true,
                 CreatedAt = seedDate
             },
             new Category
             {
-                Id = -13, Name = "Diğer Gelirler", Type = incomeType, IconName = "fas fa-ellipsis-h", IsPredefined = true,
+                Id = -13, Name = "Diğer Gelirler", Type = incomeType, IconName = "0xe148", IsPredefined = true,
                 CreatedAt = seedDate
             }
         );
